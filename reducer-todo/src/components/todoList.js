@@ -1,18 +1,10 @@
-import React, {useReducer} from 'react';
+import React from 'react';
 
 import Todo from './todoCard.js';
-import {initialState, todoReducer} from '../reducers/';
+// import {initialState, todoReducer} from '../reducers';
 
-const TodoList = () =>{
-  // const [newTitleText, setNewTitleText] = useState("");
-
-  const [state, dispatch] = useReducer(todoReducer, initialState);
-
-
-  // console.log(state);
-
-
-  // let count = 0;
+const TodoList = (props) =>{
+  // const [state, dispatch] = useReducer(todoReducer, initialState);
 
 
   return(
@@ -23,9 +15,9 @@ const TodoList = () =>{
       </div>
       <br />
       <br />
-        {state.tasks.map(task =>{
+        {props.tasks.map(task =>{
 
-          return <Todo id={task.id} item={task.item} completed={task.completed} key={task.id}  />
+          return <Todo id={task.id} item={task.item} completed={task.completed} key={task.key} finishTask={props.finishTask}  />
         })}
 
     </div>
